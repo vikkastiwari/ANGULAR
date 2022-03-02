@@ -6,4 +6,8 @@
     npm install -g npm
   #### App
     ng new app-name
+    
+### Package
+  #### Bootstrap
+    npm install --save bootstrap
   
