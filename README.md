@@ -6,6 +6,8 @@
     npm install -g npm
   #### App
     ng new app-name
+  #### Add Directive
+    ng g directive directive-name
     
 ### Package
   #### Bootstrap
