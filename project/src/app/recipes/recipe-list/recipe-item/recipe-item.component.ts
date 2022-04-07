@@ -11,6 +11,8 @@ export class RecipeItemComponent implements OnInit {
     // to get data from outside from the components
     @Input()
     recipe!: Recipe;
+
+    @Input() index!: number;
     
     // @Output() recipeSelected = new EventEmitter<string>();
 
@@ -18,12 +20,5 @@ export class RecipeItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
-    onSelected() {
-        this.recipeService.recipeSelected.emit(this.recipe);
-
-        // this.recipeSelected.emit();
-
-    }
     
 }
