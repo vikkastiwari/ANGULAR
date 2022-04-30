@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,11 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
     
-export class AppComponent {
-    title = 'project';
+export class AppComponent implements OnInit {
+    // title = 'project';
     
-    loadedFeature = 'recipe';
-    onNavigate( feature: string ) {
-        this.loadedFeature = feature;
+    // loadedFeature = 'recipe';
+    // onNavigate( feature: string ) {
+    //     this.loadedFeature = feature;
+    // }
+
+    constructor(private authService:AuthService){}
+
+    ngOnInit() {
+        this.authService.autoLogin();
     }
 }

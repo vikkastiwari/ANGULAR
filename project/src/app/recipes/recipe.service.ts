@@ -11,23 +11,32 @@ export class RecipeService {
     // recipeSelected = new EventEmitter<Recipe>();
     recipesChanged = new Subject<Recipe[]>();
 
-    private recipes: Recipe[] = [
-        new Recipe( 'A test Recipe', "Tasty one", "https://static.onecms.io/wp-content/uploads/sites/44/2021/02/18/veggie-grilled-cheese-tomato-soup.jpg", [
-            new Ingredient('Fries',20),
-            new Ingredient('Bread Slice',20),
-        ] ),
+    // private recipes: Recipe[] = [
+    //     new Recipe( 'A test Recipe', "Tasty one", "https://static.onecms.io/wp-content/uploads/sites/44/2021/02/18/veggie-grilled-cheese-tomato-soup.jpg", [
+    //         new Ingredient('Fries',20),
+    //         new Ingredient('Bread Slice',20),
+    //     ] ),
         
-        new Recipe( 'A tasty Recipe', "Yummy one", "https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg", [
-            new Ingredient('Fries',10),
-            new Ingredient('Breads',2),
-        ]),
-    ];
+    //     new Recipe( 'A tasty Recipe', "Yummy one", "https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg", [
+    //         new Ingredient('Fries',10),
+    //         new Ingredient('Breads',2),
+    //     ]),
+    // ];
+
+    private recipes: Recipe[] = [];
 
     constructor(private shoppingListService:ShoppingListService){}
 
     getRecipes() {
         // we have created a copy of array and returned it using splice
         return this.recipes.slice();
+    }
+
+    // overwrite set of arrays with the exisiting one
+    setRecipes(recipes: Recipe[]){
+        this.recipes = recipes;
+        // emitting the copy of arrays
+        this.recipesChanged.next(this.recipes.slice());
     }
 
     getRecipe( index: number ) {
